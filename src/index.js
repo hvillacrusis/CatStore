@@ -32,11 +32,13 @@ const startServer = async () => {
     context: {
       models,
       sheets: {
-        cats: await (async () => {
-          const grid = await catsSheet.grid({headerLength: 1});
-          sheets.CatSheet.setGrid(grid);
-          return sheets.CatSheet;
-        })(),
+        cats: {
+          getAll: async () => {
+            const grid = await catsSheet.grid({headerLength: 1});
+            sheets.CatSheet.setGrid(grid);
+            return sheets.CatSheet.getAll();
+          },
+        },
       },
     },
   });

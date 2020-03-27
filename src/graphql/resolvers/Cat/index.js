@@ -2,9 +2,10 @@ import cat from '../../../server/models/CatSheet';
 
 export default {
   Query: {
-    cats: (_, pars, context, info) => {
+    cats: async (_, pars, context, info) => {
       const {cats} = context.sheets;
-      return cats.getAll().map((item, idx) => ({...item, id: idx}));
+      const allCats = await cats.getAll();
+      return allCats.map((item, idx) => ({...item, id: idx}));
     },
 
     async getCat(_, {id}) {

@@ -2430,7 +2430,7 @@ graphql@^14.5.3, graphql@^14.6.0:
 
 "gsheeez@https://github.com/odjhey/gsheeez":
   version "0.0.1"
-  resolved "https://github.com/odjhey/gsheeez#b04443b57118df9124fdcb13f69ecf81556e2337"
+  resolved "https://github.com/odjhey/gsheeez#d06a9b1f0d4b0363d1f1e95e1c9a736e00dc4664"
 
 gtoken@^4.1.0:
   version "4.1.4"
