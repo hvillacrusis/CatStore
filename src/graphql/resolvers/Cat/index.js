@@ -30,6 +30,12 @@ export default {
     deleteCat: async (_, {id}) => {
       return await Cat.findByIdAndRemove(id);
     },
+
+    updateLastNameSingleByName: async (parent, {input}, {sheets}, info) => {
+      const {name, lastname} = input;
+      return sheets.cats.updateLastNameSingleByName(name, lastname);
+    },
+
     updateCat: async (_, {input}) => {
       return await Cat.findOneAndUpdate(
         {_id: input.id},

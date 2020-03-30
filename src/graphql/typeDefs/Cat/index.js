@@ -22,6 +22,10 @@ type Query {
         lastname: String 
         breed: Breed!
     }
+    input UpdateLastNameByNameInput{
+       name: String!
+       lastname: String!
+    }
 type Cat{
     id: ID!
     name: String!
@@ -32,5 +36,6 @@ type Mutation{
     createCat(input:CreateCatInput!): Cat!   
     deleteCat(id:ID!):Cat! 
     updateCat(input:UpdateCatInput):Cat!
+    updateLastNameSingleByName(input:UpdateLastNameByNameInput): Cat!
 }
 `;

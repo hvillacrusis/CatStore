@@ -38,6 +38,20 @@ const startServer = async () => {
             sheets.CatSheet.setGrid(grid);
             return sheets.CatSheet.getAll();
           },
+          updateLastNameSingleByName: async (name, lastname) => {
+            const grid = await catsSheet.grid({headerLength: 1});
+            const catSheepModel = sheets.CatSheet;
+            catSheepModel.setGrid(grid);
+            const obj = catSheepModel.get({name});
+            const newObj = catSheepModel.update(obj, {lastname});
+            console.log('newObj', newObj);
+
+            const res = await catsSheet.save({headerLength: 1}, catSheepModel.getChanges());
+
+            if (res.status == 200) {
+              return newObj;
+            }
+          },
         },
       },
     },
